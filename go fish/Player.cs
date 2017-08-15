@@ -14,12 +14,14 @@ namespace go_fish
         private Random random;
         private Deck cards;
         private TextBox textBoxOnForm;
+        
 
         public Player (String name, Random random, TextBox textBoxOnForm)
         {
             this.name = name;
             this.random = random;
             this.cards = new Deck(new Card[] { });
+            this.textBoxOnForm = textBoxOnForm;
             textBoxOnForm.Text += name + " has just joined the game" + Environment.NewLine;
         }
 
@@ -64,7 +66,7 @@ namespace go_fish
 
         public void AskForACard (List<Player> players, int myindex, Deck stock, Values value)
         {
-            textBoxOnForm.Text += Name + "asks if anyone have a " + value + Environment.NewLine;
+            textBoxOnForm.Text += Name + " asks if anyone have a " + value + Environment.NewLine;
             int totalcardsgiven = 0;
 
             for (int i =0; i < players.Count; i++)
